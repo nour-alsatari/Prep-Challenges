@@ -39,13 +39,14 @@
 
 const objectCounter = (obj) => {
 
-   const counter= obj.reduce( (total, num, index) => {
-        return index + 1;
+    const counter= obj.reduce( (total, num, index) => {
+         return index + 1;
+ 
+     });
+ 
+     return counter;
+ }
 
-    });
-
-    return counter;
-}
 // 2) ---------------------
 // 
 // Given a string input as an argument reverse it using reduce method.
@@ -61,6 +62,8 @@ const objectCounter = (obj) => {
 
 const stringReverse = (str) => {
 
+    const arr = str.split('');
+    return arr.reduce((acc, val) => val + acc,"");
 
 
 }

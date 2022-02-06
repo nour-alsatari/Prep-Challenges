@@ -39,11 +39,12 @@
 
 const objectCounter = (obj) => {
 
-    let count = obj.reduce((counter, x) => {
-        if (x.voter_Name != null ) {counter += 1} else { counter}
-        
-       } , 0); 
+   const counter= obj.reduce( (total, num, index) => {
+        return index + 1;
 
+    });
+
+    return counter;
 }
 // 2) ---------------------
 // 
@@ -59,7 +60,8 @@ const objectCounter = (obj) => {
 // ------------------------
 
 const stringReverse = (str) => {
-    // write your code here
+
+
 
 }
 

@@ -24,7 +24,7 @@
         {
             "language": "javascript",
             "source": [
-                "function equalizeArray(arr) {\n    let obj = {};\n    for (let i of arr){\n        if (obj[i]){\n            obj[i]++\n        } else {\n            obj[i] = 1;\n        }\n    }\n    const valueArr = Object.values(obj);\n    const max = Math.max (...valueArr)\n    return arr.length - max\n    }"
+                "function equalizeArray(arr) {\n    let obj = {};\n    for (let i of arr){\n        if (obj[i]){\n            obj[i]++\n        } else {\n            obj[i] = 1;\n        }\n    }\n    const valueArr = Object.values(obj);\n    const max = Math.max (...valueArr)\n    return arr.length - max;\n    }"
             ],
             "outputs": []
         },

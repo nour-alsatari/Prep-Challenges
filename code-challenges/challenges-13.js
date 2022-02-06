@@ -39,14 +39,12 @@
 
 const objectCounter = (obj) => {
 
-    var enabledCount = obj.reduce(
-        (accumulator, currentValue) => accumulator.concat(currentValue), []
-      ).filter(item => item.enabled).length
-      
-      return enabledCount;
+    let count = obj.reduce((counter, x) => {
+        if (x.voter_Name != null ) {counter += 1} else { counter}
+        
+       } , 0); 
 
 }
-
 // 2) ---------------------
 // 
 // Given a string input as an argument reverse it using reduce method.

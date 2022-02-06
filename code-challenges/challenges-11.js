@@ -16,8 +16,9 @@
 // -------------
 
 function square(arr) {
-    let result = arr.map(x => x ** 2);
-    return result;
+
+    let value = arr.map((ele) => { return ele ** 2 });
+    return value;
 }
 
 // 2) ------------------
@@ -57,7 +58,13 @@ function square(arr) {
 
 function fullName(arr) {
 
-    arr.map(authors => `${arr.firstName} ${arr.lastName}`);
+
+    let value = arr.map(ele => {
+        return `${ele.firstName} ${ele.lastName}`;
+
+    });
+
+    return value;
 }
 
 // 3) ---------------------
@@ -120,6 +127,17 @@ function fullName(arr) {
 
 function gradesAvg(arr) {
     // write your code here
+    arr.map(ele => {
+
+        let sum = ele.gradsList.reduce((accumulator, curr) => {
+            return accumulator + curr;
+        })
+        let avg = sum / ele.gradsList.length;
+
+        ele.avg = avg;
+
+    })
+    return arr;
 }
 
 
@@ -190,7 +208,20 @@ function gradesAvg(arr) {
 // -------------
 
 function studentsResult(arr) {
-    // write your code here
+
+    arr.map(ele => {
+
+
+        if (ele.avg >= 50) {
+            ele.result = "Passed";
+        }
+        else {
+            ele.result = "Failed";
+        }
+
+
+    })
+    return arr;
 }
 
 module.exports = { square, fullName, gradesAvg, studentsResult };

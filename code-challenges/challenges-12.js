@@ -73,14 +73,33 @@ const oddFiltration = (arr) => {
 // ------------------------
 
 const cvsFiltration = (arr) => {
-    let x = cvs.filter(ele => {
 
-        if (ele.yearsOfExperience > 4 && ele.tech == "JS") {
-            return ele.fullName = `${ele.firstName} ${ele.LastName}`, ele.tech;
+    let qualified = arr.filter(candidate => {
+
+        if (candidate.yearsOfExperience > 4 && candidate.tech == "JS") {
+            return candidate; // only return the original item
         }
+    }).map(candidate => { // modification can't be inside filter
 
+        let obj = {} // create an obj so i don't have to mod the original one
+        if (candidate.firstName == null) {
+            obj.fullName = candidate.LastName
+        } else if (candidate.LastName == null) {
+            obj.fullName = candidate.firstName
+        } else {
+            obj.fullName = `${candidate.firstName} ${candidate.LastName}`;
 
+        }
+        obj.tech = candidate.tech;
+
+        return obj
     })
+
+
+    console.log(qualified)
+    return qualified
+
+
 }
 
 // 3) ---------------------
@@ -94,10 +113,10 @@ const cvsFiltration = (arr) => {
 
 const vowelsFiltration = (arr) => {
 
-    let rex = /^[aeiou]/i;
-    let results = arr.filter(str => rex.test(str));
+    let regex = /[aeiou]/;
+    let newArr = arr.filter(word => !regex.test(word))
 
-    return results;
+    return newArr;
 }
 
 // 4) ---------------------
@@ -115,15 +134,16 @@ const vowelsFiltration = (arr) => {
 // ------------------------
 
 const skillComparison = (arr1, arr2) => {
-    let diffone = arr2.filter((value) => !arr1.includes(value));
-    let difftwo = arr1.filter((value) => !arr2.includes(value));
 
-    diffone.map((element) => {
-        difftwo.push(element);
-    });
+    let diff1 = arr1.filter(ele => !arr2.includes(ele))
 
-    return difftwo;
+    let diff2 = arr2.filter(ele => !arr1.includes(ele))
+
+    let bothArrays = diff1.concat(diff2);
+    return bothArrays;
 }
+
+// const intersection = array1.filter(element => array2.includes(element));
 
 
 module.exports = { oddFiltration, cvsFiltration, vowelsFiltration, skillComparison };

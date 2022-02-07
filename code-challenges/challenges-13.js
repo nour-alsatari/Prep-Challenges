@@ -39,12 +39,10 @@
 
 const objectCounter = (obj) => {
 
-   const counter= obj.reduce( (total, num, index) => {
-        return index + 1;
-
-    });
+    let counter = obj.reduce((accumelator, current, index) => ++index)
 
     return counter;
+
 }
 // 2) ---------------------
 // 
@@ -61,7 +59,16 @@ const objectCounter = (obj) => {
 
 const stringReverse = (str) => {
 
+    let arrayOfWords = str.split(" "); // splits and returns an array
+    arrayOfWords.reverse();
 
+    let reducedIntoOneSentence = arrayOfWords.reduce((accu, current) => {
+
+        let x = `${accu} ${current}`;
+        return x;
+    })
+
+    return reducedIntoOneSentence;
 
 }
 
@@ -104,7 +111,12 @@ const stringReverse = (str) => {
 // ------------------------
 
 const statistics = (obj) => {
-    // write your code here
+    let result = arr.reduce((accu, current) => {
+
+        // still solving it
+
+    }, {})
+    return result;
 }
 
 

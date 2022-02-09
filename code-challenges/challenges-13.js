@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-// Important Note: 
+// Important Note:
 // Kindly use reduce instead of for in all of your solutions
 
 // Resource:
 // Reduce: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
 
 // 1) ---------------------
-// 
+//
 //  Given an array of objects, count the objects by using reduce method.
 
 //  EX:
@@ -38,14 +38,12 @@
 // ------------------------
 
 const objectCounter = (obj) => {
+  let counter = obj.reduce((accumelator, current, index) => ++index);
 
-    let counter = obj.reduce((accumelator, current, index) => ++index)
-
-    return counter;
-
-}
+  return counter;
+};
 // 2) ---------------------
-// 
+//
 // Given a string input as an argument reverse it using reduce method.
 //
 //  EX:
@@ -58,22 +56,19 @@ const objectCounter = (obj) => {
 // ------------------------
 
 const stringReverse = (str) => {
+  let arrayOfWords = str.split(" "); // splits and returns an array
+  arrayOfWords.reverse();
 
-    let arrayOfWords = str.split(" "); // splits and returns an array
-    arrayOfWords.reverse();
+  let reducedIntoOneSentence = arrayOfWords.reduce((accu, current) => {
+    let x = `${accu} ${current}`;
+    return x;
+  });
 
-    let reducedIntoOneSentence = arrayOfWords.reduce((accu, current) => {
-
-        let x = `${accu} ${current}`;
-        return x;
-    })
-
-    return reducedIntoOneSentence;
-
-}
+  return reducedIntoOneSentence;
+};
 
 // 3) ---------------------
-// 
+//
 // Using the same array of object from the first question, create new object that contain the candidates name as keys (voting for),
 // and how many times they got voted to as values using the reduce method.
 //
@@ -110,16 +105,16 @@ const stringReverse = (str) => {
 //
 // ------------------------
 
-const statistics = (obj) => {
-    let result = arr.reduce((accu, current) => {
-
-        // still solving it
-
-    }, {})
-    return result;
-}
-
-
+const statistics = (arr) => {
+  return arr.reduce((acc, current) => {
+    let vote = current.votes_To;
+    if (acc[vote]) {
+      ++acc[vote];
+    } else {
+      acc[vote] = 1;
+    }
+    return acc;
+  }, {});
+};
 
 module.exports = { objectCounter, stringReverse, statistics };
-

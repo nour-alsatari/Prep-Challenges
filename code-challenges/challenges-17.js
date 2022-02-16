@@ -15,21 +15,7 @@
 //
 
 const recursionPattern = (int1, int2) => {
-  let output = [int1];
-  let operation = "minus";
-  if (int1 == -4) {
-    operation = "summation";
-  }
-  if (int1 + int2 == output[0]) {
-    output.push(int1 + int2);
-    return output;
-  } else if (operation == "minus") {
-    output.push(int1 - int2);
-    return recursionPattern(int1 - int2, int2);
-  } else if (operation == "summation") {
-    output.push(int1 + int2);
-    return recursionPattern(int1 + int2, int2);
-  }
+ 
 };
 // -------------------------------------------------------------------------------------------------------
 

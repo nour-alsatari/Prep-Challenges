@@ -15,7 +15,19 @@
 //
 
 const recursionPattern = (int1, int2) => {
+  let outputArray = [int1];
 
+  if (int1 + int2 == outputArray[0]) {
+    outputArray.push(int1 + int2);
+    return outputArray;
+  } else if (int1 > int2) {
+    outputArray.push(int1 - int2);
+    return recursionPattern(int1 - int2, int2);
+  } else if (int1 < int2) {
+    outputArray.push(int1 + int2);
+    return recursionPattern(int1 + int2, int2);
+  }
+  return outputArray;
 };
 // -------------------------------------------------------------------------------------------------------
 
